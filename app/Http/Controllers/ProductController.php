@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     //Shows product page
-    public function index()
-    {
-
+    public function index(){
+      
     }
     //Shows create page
     public function create(){
-
+        return view('products.create');
     }
     //Store product in db
     public function store(){
