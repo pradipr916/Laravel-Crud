@@ -18,19 +18,28 @@
             <h5 class="text-white">Create Product</h3>
 </div>
 <div class="card-body">
-  <form action="{{route('products.store')}}" metod="post" enctype= "multipart/form-data" >
+  <form action="{{route('products.store')}}" method="post" enctype= "multipart/form-data" >
 @csrf
   <div class="mb-3">
   <label class="form-label h5" >Name</label>
-  <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter Name"></input>
+  <input type="text" name="name" class="form-control form-control-lg @error('name') is-invalid @enderror" placeholder="Enter Name"></input>
+  @error('name')
+  <p class="invalid-feedback">{{$message}}</p>
+  @enderror
   </div>
   <div class="mb-3">
   <label class="form-label h5" >SKU</label>
-  <input type="text" name="sku" class="form-control form-control-lg" placeholder="Enter SKU"></input>
+  <input type="text" name="sku" class="form-control form-control-lg @error('sku') is-invalid @enderror" placeholder="Enter SKU"></input>
+  @error('sku')
+  <p class="invalid-feedback">{{$message}}</p>
+  @enderror
 </div>
 <div class="mb-3">
   <label class="form-label h5" >Price</label>
-  <input type="text" name="price"class="form-control form-control-lg" placeholder="Enter Price"></input>
+  <input type="text" name="price"class="form-control form-control-lg @error('price') is-invalid @enderror" placeholder="Enter Price"></input>
+  @error('price')
+  <p class="invalid-feedback">{{$message}}</p>
+  @enderror
 </div>
 <div class="mb-3">
   <label class="form-label h5" >Description</label>
